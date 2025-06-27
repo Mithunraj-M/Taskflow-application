@@ -19,6 +19,9 @@ app.get('/api/protected', protect, (req, res) => {
   res.send(`Hello ${req.user.name}, this is a protected route.`);
 });
 
+const taskRoutes = require('./routes/taskRoutes');
+app.use('/api/tasks', taskRoutes);
+
 // MongoDB connection and server start
 const PORT = process.env.PORT || 5000;
 mongoose
